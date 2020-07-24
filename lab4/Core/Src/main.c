@@ -253,17 +253,15 @@ void StartTask02(void const * argument)
 {
   /* USER CODE BEGIN StartTask02 */
   /* Infinite loop */
-	int16_t SendNum1 = 1;
-	int16_t SendNum2 = 1;
+	int16_t SendNum=1;
   for(;;)
   {
-	  xQueueSend(q1, ( void* )&SendNum1, portMAX_DELAY);
-	  SendNum1++;
-	  xQueueSend(q2, ( void* )&SendNum2, portMAX_DELAY);
-	  SendNum2++;
+	  xQueueSend(q1, ( void* )&SendNum, portMAX_DELAY);
+	  xQueueSend(q2, ( void* )&SendNum, portMAX_DELAY);
+	  SendNum++;
 	  HAL_Delay(1000);
-	  xQueueSend(q1, ( void* )&SendNum1, portMAX_DELAY);
-	  SendNum1++;
+	  xQueueSend(q1, ( void* )&SendNum, portMAX_DELAY);
+	  SendNum++;
 	  HAL_Delay(1000);
 //    osDelay(1);
   }
